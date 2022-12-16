@@ -1,0 +1,48 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
+dependencies {
+    testImplementation (
+            "com.codeborne:selenide:6.10.1",
+            "org.junit.jupiter:junit-jupiter-api:5.9.1",
+            "org.apache.poi:poi:5.2.3",
+            "com.codeborne:pdf-test:1.7.0",
+            "com.codeborne:xls-test:1.6.0",
+            "org.assertj:assertj-core:3.23.1",
+            "net.lingala.zip4j:zip4j:2.11.2",
+            "org.docx4j:docx4j-JAXB-ReferenceImpl:11.4.8",
+            "org.slf4j:slf4j-api:2.0.6",
+            "org.slf4j:slf4j-reload4j:2.0.6"
+    )
+
+    testRuntimeOnly (
+            "org.junit.jupiter:junit-jupiter-engine:5.9.1"
+    )
+
+    testRuntimeOnly(
+            'org.slf4j:slf4j-simple:2.0.5'
+    )
+}
+
+test {
+    useJUnitPlatform()
+}
